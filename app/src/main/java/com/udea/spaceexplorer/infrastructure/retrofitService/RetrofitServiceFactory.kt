@@ -11,4 +11,20 @@ object RetrofitServiceFactory {
             .build()
             .create(ApiNasaRetrofitService::class.java)
     }
+
+    fun makeRetrofitServiceOpenNotify(): ApiOpenNotifyRetrofitService {
+        return Retrofit.Builder()
+            .baseUrl("http://api.open-notify.org/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiOpenNotifyRetrofitService::class.java)
+    }
+
+    fun makeRetrofitServiceNinja(): ApiNinjaRetrofitService {
+        return Retrofit.Builder()
+            .baseUrl("https://api.api-ninjas.com/v1/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiNinjaRetrofitService::class.java)
+    }
 }
